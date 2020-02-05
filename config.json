@@ -1,0 +1,23 @@
+{
+	"prefix": "~",  
+	"owner": "635569641883697152",
+	"mainguildID": "647531073005289473",
+	"errorLogChannel": "bot-log",
+	"banLogChannel": "bot-log",
+	"joinLogChannel": "bot-log",
+	"deleteLogChannel": "bot-log",
+	"warnBuffer": "5", 
+	"maxBuffer": "10",
+	"interval": "1000",
+	"warningMessage": "stop spamming or you will be banned.",
+	"banMessage": "has been banned for spamming.",
+	"maxDuplicatesWarning": "7",
+	"maxDuplicatesBan": "10",
+	"deleteMessagesAfterBanForPastDays": "7",
+	"exemptRoles": ["Owner","Admin", "Moderator"],
+	"exemptUsers": ["Nugget#0106", "user#0002"],
+  "googleAPIToken": "AIzaSyBtbu18lZsPGXgQSqofd7KFEkKpiB7HPSQ",
+  "musicEnabled": "true",
+  "adminID" : "635569641883697152",
+  "passes": 1
+}
