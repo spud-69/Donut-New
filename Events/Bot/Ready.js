@@ -26,7 +26,7 @@ module.exports = client => {
 
      
       client.user.setActivity(
-        `~help or ~support | My uptime is ${Math.round(days)} days, ${Math.round(
+        `Thank you to Nugget#0106, and ༺.Legends.༻™#8604  fixing my code... :( | ~help or ~support | My uptime is ${Math.round(days)} days, ${Math.round(
           hours)}:${Math.round(minutes)}:${Math.round(seconds)}`
       );
     }, 1000);

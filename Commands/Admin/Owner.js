@@ -7,7 +7,6 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send(`Made ${owner} the Server Owner successfully! ✅`)
 
-
 }        
 
 module.exports.help = {
