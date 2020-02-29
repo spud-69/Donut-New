@@ -2,9 +2,8 @@ const Discord = require('discord.js');
 const moment = require('moment');
 const db = require('quick.db');
 
-module.exports = (client) => {
+module.exports = async (client, eold, enew) => {
   
-client.on('messageUpdate', async (eold, enew) => {
     if (enew.author.username === client.user.username) return
     const date = new Date()
     console.log(`[${moment(date).format('DD-MM-Y hh:mm: A')}][${eold.guild.name}] User ${eold.author.tag} has uptaded their message.`)
@@ -42,7 +41,6 @@ client.on('messageUpdate', async (eold, enew) => {
         }
     }
     logs.send(embed)
-})
 //   client.on('messageUpdate', (oldMessage, newMessage) => {
 //     if (newMessage.author.bot) return;
     

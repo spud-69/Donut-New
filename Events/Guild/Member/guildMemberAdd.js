@@ -2,13 +2,12 @@ const Discord = require('discord.js');
 const moment = require('moment');
 const db = require('quick.db');
 
-module.exports = (client) => {
-   client.on('guildMemberAdd', async join => {
+module.exports = async (client, join) => {
     const date = new Date()
     console.log(`[${moment(date).format('DD-MM-Y hh:mm: A')}][${join.guild.name}] User ${join.user.tag} has joined the server.`)
     // const logs = join.guild.channels.find(x => x.name === "logs");
     let logs = join.guild.channels.get(await db.fetch(`ModLog_${join.guild.id}`))
-    if (join.author.client) return;
+    if (join.user.bot) return;
 
     const embed = {
         "embed": {
@@ -24,7 +23,7 @@ module.exports = (client) => {
             }
         }
     }
+    if(!logs) return;
     logs.send(embed)
     
-})
 }

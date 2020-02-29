@@ -47,7 +47,7 @@ __Technical Information__
 
 module.exports.help = {
     name: "botinfo",
-    category: "Info",
+    category: "Utility",
     description: "Displays information about Dount",
     usage: "botinfo",
     example: "",

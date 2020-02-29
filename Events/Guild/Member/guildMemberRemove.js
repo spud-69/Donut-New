@@ -2,10 +2,13 @@ const Discord = require('discord.js');
 const moment = require('moment');
 const db = require('quick.db');
 
-module.exports = (client) => {
+module.exports = async (client, member, leave, guild) => {
   
+//     client.on('guildMemberRemove', leave => {
+     const date = new Date()
+     console.log(`[${moment(date).format('DD-MM-Y hh:mm: A')}][${leave.guild.name}] User ${leave.user.tag} has left the server.`)
+     const logs = leave.guild.channels.find(x => x.name === "logs");
 
-  client.on("guildMemberRemove", async member => {
     var leaveChannelID = client.config.joinLogChannel;
     var leaveTime = new Date().toLocaleString("en-US", {
       timeZone: "America/New_York",
@@ -26,7 +29,7 @@ ${member.user} has left the server
 **Created At:** ${member.user.createdAt}
 **Left At:** ${leaveTime}
 `);
+  logs.send(embed)
     // client.channels.find("id", leaveChannelID).send({ embed }).catch(console.error);
-    member.guild.channels.get(await db.fetch(`ModLog_${member.guild.id}`)).send({embed: embed}).catch(console.error)
-  });
+    //member.guild.channels.get(await db.fetch(`ModLog_${member.guild.id}`)).send({embed: embed}).catch(console.error)
 };

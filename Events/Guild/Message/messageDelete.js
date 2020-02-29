@@ -2,8 +2,7 @@ const Discord = require('discord.js');
 const moment = require('moment');
 const db = require('quick.db');
 
-module.exports = (client) => {
-client.on('messageDelete', async message => {
+module.exports = async (client, message) => {
     const date = new Date()
     console.log(`[${moment(date).format('DD-MM-Y hh:mm: A')}][${message.guild.name}] User ${message.author.tag} has been deleted`)
     // const logs = message.guild.channels.find(x => x.name === "logs"); 
@@ -63,6 +62,5 @@ logs.send(embed)
     client.on("debug", (e) => {
         console.info(e);
     });
-})
   
 }

@@ -23,18 +23,18 @@ module.exports = (client, klaw, path, fileSync) => {
     })
   })
   
-  let events = [];
-  klaw('./Events').on('readable', function(){
-    let item;
-    while(item = this.read()){
-      events.push(item.path)
-    }
-  }).on('end', function(){
-    events.forEach(file => {
-      if(file.endsWith('.js') == false || fileSync.isDir(file) == true) return;
-      require(file)(client)
-    })
-  })
+//   let events = [];
+//   klaw('./Events').on('readable', function(){
+//     let item;
+//     while(item = this.read()){
+//       events.push(item.path)
+//     }
+//   }).on('end', function(){
+//     events.forEach(file => {
+//       if(file.endsWith('.js') == false || fileSync.isDir(file) == true) return;
+//       require(file)(client)
+//     })
+//   })
   
   let handlers = [];
   klaw('./Handlers').on('readable', function(){

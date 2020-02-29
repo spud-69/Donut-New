@@ -16,5 +16,6 @@ module.exports.run = (bot, message, args) => {
 }
 
 module.exports.help = {
-    name: "mock"
+    name: "mock",
+    category:  "Fun"
 }

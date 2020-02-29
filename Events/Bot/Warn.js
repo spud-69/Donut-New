@@ -1,6 +1,7 @@
-module.exports = (client) => {
+module.exports = async (client, warn) => {
   client.on('warn', (e) => {
     console.warn(e)
-    client.channels.find("id", client.config.errorLogChannel).send("**Warning:** ```" + e + "```");
+   //  let logs = enew.guild.channels.get(await db.fetch(`ModLog_${enew.guild.id}`))
+    //client.channels.find("id", client.config.errorLogChannel).send("**Warning:** ```" + e + "```");
   })
 }
