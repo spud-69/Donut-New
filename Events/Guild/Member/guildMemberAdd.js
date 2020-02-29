@@ -1,19 +1,30 @@
 const Discord = require('discord.js');
+const moment = require('moment');
+const db = require('quick.db');
 
 module.exports = (client) => {
-  client.on('guildMemberAdd', async (member) => {
-    var joinChannelID = client.config.joinLogChannel;
-  var joinTime = new Date().toLocaleString("en-us", {timeZone:"America/New_York", timeZoneName: "short", weekday: "short", month: "long", day: "2-digit", year: "numeric", hour: '2-digit', minute:'2-digit'});
+   client.on('guildMemberAdd', async join => {
+    const date = new Date()
+    console.log(`[${moment(date).format('DD-MM-Y hh:mm: A')}][${join.guild.name}] User ${join.user.tag} has joined the server.`)
+    // const logs = join.guild.channels.find(x => x.name === "logs");
+    let logs = join.guild.channels.get(await db.fetch(`ModLog_${join.guild.id}`))
+    if (join.author.client) return;
 
-  var embed = new Discord.RichEmbed()
-  .setColor(0x008000)
-  .setDescription(`
-${member.user} has joined the server 
-**Tag:** ${member.user.tag}
-**ID:** ${member.user.id}
-**Created At:** ${member.user.createdAt}
-**Joined At: ** ${joinTime}
-  `);
-  client.channels.find("id", joinChannelID).send({embed}).catch(console.error);
-  })
+    const embed = {
+        "embed": {
+            "color": 0x19bf0a,
+            'fields': [
+                {
+                    'name': 'Member Joined',
+                    'value': `${join.user}`
+                }
+            ],
+            footer: {
+                'text': `${moment(date).format('DD-MM-Y hh:mm:ss A')}`
+            }
+        }
+    }
+    logs.send(embed)
+    
+})
 }

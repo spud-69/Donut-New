@@ -1,7 +1,11 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
+const moment = require('moment');
+const db = require('quick.db');
 
-module.exports = client => {
-  client.on("guildMemberRemove", member => {
+module.exports = (client) => {
+  
+
+  client.on("guildMemberRemove", async member => {
     var leaveChannelID = client.config.joinLogChannel;
     var leaveTime = new Date().toLocaleString("en-US", {
       timeZone: "America/New_York",
@@ -22,9 +26,7 @@ ${member.user} has left the server
 **Created At:** ${member.user.createdAt}
 **Left At:** ${leaveTime}
 `);
-    client.channels
-      .find("id", leaveChannelID)
-      .send({ embed })
-      .catch(console.error);
+    // client.channels.find("id", leaveChannelID).send({ embed }).catch(console.error);
+    member.guild.channels.get(await db.fetch(`ModLog_${member.guild.id}`)).send({embed: embed}).catch(console.error)
   });
 };

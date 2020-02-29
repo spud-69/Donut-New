@@ -6,6 +6,7 @@ module.exports.run = async (bot, message, args) => {
     .setColor("#00ff00")
     .setThumbnail(bicon)
     .setTitle("Support Info")
+    .setDescription('**Online**- Bot is running perfectly\n**Idle**-Bot has a bug and Developer is trying to locate the bug.\n**DnD**-Developer has located the bug, and is attempting to fix it.\n**Invisiable**-Bot is having connection issues, or Developer is updating the bot.')
     .addField("To see the bot commands use", "`~help`")
     .addField("To report bug use", "`~contact`")
     .addField(

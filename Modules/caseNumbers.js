@@ -1,6 +1,6 @@
 module.exports = (client) => {
 
-  async function caseNumber(client, modlog) { // Code from: https://github.com/AnIdiotsGuide/Tutorial-Bot/blob/Episode-10-Part-1/util/caseNumber.js
+  async function caseNumber(client, modlog) { 
 	const messages = await modlog.fetchMessages({ limit: 50 });
 	const log = messages.filter(m => m.author.id === client.user.id &&
 		m.embeds[0] &&

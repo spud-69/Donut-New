@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
             })
             message.channel.send(embed);
           })
-          .catch(console.log);
+          .catch(console.log);     
       } else {
         message.reply('You are not in a voice channel!');
       }
