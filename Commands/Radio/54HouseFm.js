@@ -1,6 +1,11 @@
 const Discord = require("discord.js");
-
-exports.run = (client, message, args) => {
+module.exports = {
+    name: "r5",
+    aliases: ["house"],
+    category: "radio",
+    description: "Plays 54HosueFM Radio",
+    dev: true,
+    run: async (client, message, args) => {
 
      if (message.member.voiceChannel) {
         message.member.voiceChannel.join()
@@ -21,10 +26,7 @@ exports.run = (client, message, args) => {
       } else {
         message.reply('You are not in a voice channel!');
       }
-    };
-  
-module.exports.help = {
-  name: "r5",
-  description: "Plays 54HosueFM Radio",
-  dev: true
+    }
 }
+  
+
